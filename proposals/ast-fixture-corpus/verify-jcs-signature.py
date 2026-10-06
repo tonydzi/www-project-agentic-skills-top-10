@@ -139,7 +139,7 @@ def run(canon, vectors):
 def load(here):
     out = []
     for path in sorted(glob.glob(os.path.join(here, "vector-ast09-*.json"))):
-        vec = json.load(open(path))
+        vec = json.load(open(path, encoding="utf-8"))
         if "signature_ed25519_hex" in (vec.get("request") or {}):
             out.append(vec)
     return out
